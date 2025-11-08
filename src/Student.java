@@ -15,4 +15,9 @@ public class Student {
         else throw new IllegalArgumentException("GPA must be between 0.0 and 4.0");
     }
 
+    @Override
+    public String toString() {
+        return String.format("ID: %s, Name: %s, Age: %d, GPA: %.2f", id, name, age, gpa);
+    }
+
 }
