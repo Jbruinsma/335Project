@@ -15,7 +15,7 @@ public class Main {
 
         List<Student> studentList = new ArrayList<>();
 
-        // Read from the input file
+        // Read from the student records input file
 
         try {
             List<String> lines = Files.readAllLines(Path.of(inputFileName));
@@ -33,12 +33,12 @@ public class Main {
                         float gpa = Float.parseFloat(parts[3].trim());
 
                         Student student = new Student(id, name, age, gpa);
-
                         studentList.add(student);
 
                     } catch (NumberFormatException e) {
                         System.err.println("Skipping malformed line (non-numeric age/gpa): " + line);
                     } catch (IllegalArgumentException e) {
+                        // Handles the invalid age or gpa exceptions I force in the Student constructor
                         System.err.println("Skipping invalid data line: " + e.getMessage() + " | Line: " + line);
                     }
                 } else {
@@ -51,21 +51,18 @@ public class Main {
             return;
         }
 
-        // Print each student before sorting
-
         Student[] studentArray = studentList.toArray(new Student[0]);
 
+        // c1. Print each student before sorting
         printStudents(studentArray, "before");
 
         // Sort the students using Binary Insertion Sort
-
         BinaryInsertionSort.binaryInsertionSort(studentArray);
 
-        // Print each student after sorting
-
+        // c2. Print each student after sorting
         printStudents(studentArray, "after");
 
-        // Write the sorted students to the output file
+        // b. Write the sorted students to a new output file
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputFileName))) {
 
@@ -74,7 +71,8 @@ public class Main {
                         student.id,
                         student.name,
                         student.age,
-                        student.gpa);
+                        student.gpa
+                );
 
                 writer.write(line);
                 writer.newLine();
