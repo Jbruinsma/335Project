@@ -42,7 +42,7 @@ public class Main {
                         System.err.println("Skipping invalid data line: " + e.getMessage() + " | Line: " + line);
                     }
                 } else {
-                    System.err.println("Skipping malformed line (wrong number of fields): " + line);
+                    System.err.println("Skipping line (wrong number of fields): " + line);
                 }
             }
 
