@@ -13,7 +13,7 @@ public class Student {
         if (age > 0) this.age = age;
         else throw new IllegalArgumentException("Age must be positive");
 
-        if (gpa >= 0.0f && gpa <= 4.0f) this.gpa = gpa;
+        if (gpa >= 0.0 && gpa <= 4.0) this.gpa = gpa;
         else throw new IllegalArgumentException("GPA must be between 0.0 and 4.0");
     }
 
