@@ -36,7 +36,7 @@ public class Main {
                         studentList.add(student);
 
                     } catch (NumberFormatException e) {
-                        System.err.println("Skipping malformed line (non-numeric age/gpa): " + line);
+                        System.err.println("Skipping line because of invalid age or GPA: " + line);
                     } catch (IllegalArgumentException e) {
                         // Handles the invalid age or gpa exceptions I force in the Student constructor
                         System.err.println("Skipping invalid data line: " + e.getMessage() + " | Line: " + line);
