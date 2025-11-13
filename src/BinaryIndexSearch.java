@@ -3,7 +3,7 @@ public class BinaryIndexSearch {
     public static int search(Student[] arr, int low, int high, String key) {
 
         // Base case: If the high index is less than the low index, return the low index as the insertion point
-        if (high < low) return low;
+        if (low > high) return low;
 
         int mid = (low + high) / 2;
 
